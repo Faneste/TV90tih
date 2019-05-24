@@ -1,13 +1,197 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  font-family:'Days One', sans-serif;
+  font-family:'VT323', monospace;
+  background: url("images/background.jpg");
+  background-attachment: fixed;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+ /* ///////////////////////// main container//////////////////// */
+.mainContainer {
+  /* grid options and naming */
+  display: grid;
+  grid-template-columns: 903px auto;
+  grid-template-areas:
+  "tv remote";
 }
+
+/* ///////////////////////// tv container//////////////////// */
+.tv {
+  grid-area: tv;
+}
+
+.tv__image {
+  position: absolute;
+  z-index: 0;
+}
+
+.tv__tvChannelBackground {
+  position: relative;
+  float: right;
+  margin-right: 45px;
+  margin-top: 70px;
+  z-index: 99;
+  text-align: center;
+}
+
+.tv__tvChannelBackground__title {
+  position: absolute;
+  font: Days One;
+  color: #ca1212;
+  font-size: 1em;
+  width: 124px;
+  margin-top: 2px;
+  margin-left: 5px;
+
+
+  -webkit-animation: blink 0.5s linear infinite;
+  -moz-animation: blink 0.5s linear infinite;
+  -ms-animation: blink 0.5s linear infinite;
+  -o-animation: blink 0.5s linear infinite;
+  animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+  to {
+    text-shadow: 0px 0px 3px #ca1212;
+    /* color: #910d0d; */
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    text-shadow: 2px 2px 5px #ca1212;
+  }
+}
+
+.tv__tvChannelBackground__subTitle {
+  position: absolute;
+  font: Days One;
+  color: #ca1212;
+  font-size: 1.2em;
+  line-height: 0.8;
+  width: 124px;
+  margin-top: 30px;
+  margin-left: 5px;
+
+  -webkit-animation: flicker 2s linear infinite;
+  -moz-animation: flicker 2s linear infinite;
+  -ms-animation: flicker 2s linear infinite;
+  -o-animation: flicker 2s linear infinite;
+  animation: flicker 2s linear infinite;
+}
+
+@keyframes flicker {
+  to {
+    text-shadow: 0px 0px 3px #ca1212;
+    /* color: #910d0d; */
+  }
+}
+@-webkit-keyframes flicker {
+  to {
+    text-shadow: 2px 2px 5px #ca1212;
+  }
+}
+
+.tv__tvChannelBackground__image {
+
+}
+
+/* ///////////////////////// remote container//////////////////// */
+.remote {
+  grid-area: remote;
+  width: 195px;
+
+  -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+  -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+  box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+
+}
+/* images */
+.remote__image {
+  margin-top: 27px;
+}
+
+.remote__changeChannelButtonImage__container {
+  position: absolute;
+  margin-left: 25px;
+  margin-top: 45px;
+}
+
+.remote__changeChannelButtonImage__container__text {
+  position: absolute;
+  color: white;
+  text-align: center;
+  padding-top: 30px;
+  font-size: 1.2em;
+  font-family: Days One!important;
+}
+
+.remote__changeChannelButtonImage__container__text:hover {
+  cursor: pointer;
+}
+
+.remote__changeChannelButtonImage__container__image {
+
+}
+
+.remote__changeChannelButtonImage__container__image:hover {
+  cursor: pointer;
+}
+
+/* buttons */
+.remote__buttonsContainer {
+  position: absolute;
+  /* margin-left: 25px; */
+  margin-top: 190px;
+  width: 195px;
+  text-align: center;
+}
+
+.remote__buttonsContainer__button {
+  width: 80%;
+  border: none;
+  background-color: #423b33;
+  color: white;
+  font-family: Days One;
+  font-size: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 7px;
+  margin-top: 5px;
+
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+  -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+}
+
+.remote__buttonsContainer__button:hover {
+  background-color: #6b451f;
+  cursor: pointer;
+}
+
+.remote__buttonsContainer__volumeText {
+  font-size: 0.9em;
+  margin-top: 3px;
+  margin-bottom: 0px;
+  font-family: Days One!important;
+}
+
+.remote__buttonsContainer__volume {
+  margin-top: 7px;
+}
+
+.buttonEffectContainerButton {
+  font-size: 0.7em!important;
+  margin-top: 15px;
+}
+
+
+
+
+
+
+
+
+
+/*  */
