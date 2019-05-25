@@ -1,10 +1,22 @@
 body {
   margin: 0;
   padding: 0;
+  /* stylized button font */
   font-family:'Days One', sans-serif;
+  /* pixel channel font */
   font-family:'VT323', monospace;
   background: url("images/background.jpg");
   background-attachment: fixed;
+}
+
+/* disabling image dragging */
+img {
+  user-drag: none;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-drag: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
  /* ///////////////////////// main container//////////////////// */
@@ -44,12 +56,11 @@ body {
   margin-top: 2px;
   margin-left: 5px;
 
-
   -webkit-animation: blink 0.5s linear infinite;
-  -moz-animation: blink 0.5s linear infinite;
-  -ms-animation: blink 0.5s linear infinite;
-  -o-animation: blink 0.5s linear infinite;
-  animation: blink 0.5s linear infinite;
+     -moz-animation: blink 0.5s linear infinite;
+      -ms-animation: blink 0.5s linear infinite;
+       -o-animation: blink 0.5s linear infinite;
+          animation: blink 0.5s linear infinite;
 }
 
 @keyframes blink {
@@ -75,10 +86,10 @@ body {
   margin-left: 5px;
 
   -webkit-animation: flicker 2s linear infinite;
-  -moz-animation: flicker 2s linear infinite;
-  -ms-animation: flicker 2s linear infinite;
-  -o-animation: flicker 2s linear infinite;
-  animation: flicker 2s linear infinite;
+     -moz-animation: flicker 2s linear infinite;
+      -ms-animation: flicker 2s linear infinite;
+       -o-animation: flicker 2s linear infinite;
+          animation: flicker 2s linear infinite;
 }
 
 @keyframes flicker {
@@ -94,17 +105,25 @@ body {
 }
 
 .tv__tvChannelBackground__image {
-
+    border-radius: 5px;
 }
 
-/* ///////////////////////// remote container//////////////////// */
+/* ///////////////////////// youtube player //////////////////// */
+
+.youtubePlayer {
+  position: absolute;
+  margin-left: 70px;
+  margin-top: 40px;
+}
+
+/* ///////////////////////// remote container //////////////////// */
 .remote {
   grid-area: remote;
   width: 195px;
 
   -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-  -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-  box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+     -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+          box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
 
 }
 /* images */
@@ -116,14 +135,18 @@ body {
   position: absolute;
   margin-left: 25px;
   margin-top: 45px;
+  text-align: center;
 }
 
 .remote__changeChannelButtonImage__container__text {
   position: absolute;
+  width: 80%;
+  z-index: 10;
   color: white;
-  text-align: center;
-  padding-top: 30px;
-  font-size: 1.2em;
+  pointer-events:none;
+  margin-left: 13px;
+  padding-top: 35px;
+  font-size: 1em;
   font-family: Days One!important;
 }
 
@@ -132,11 +155,16 @@ body {
 }
 
 .remote__changeChannelButtonImage__container__image {
-
+  z-index: 1;
 }
 
 .remote__changeChannelButtonImage__container__image:hover {
+  border-radius: 100px;
   cursor: pointer;
+
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
+     -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
+          box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
 }
 
 /* buttons */
@@ -161,8 +189,8 @@ body {
   margin-top: 5px;
 
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-  -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-  box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+     -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
+          box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
 }
 
 .remote__buttonsContainer__button:hover {
@@ -185,13 +213,5 @@ body {
   font-size: 0.7em!important;
   margin-top: 15px;
 }
-
-
-
-
-
-
-
-
 
 /*  */
