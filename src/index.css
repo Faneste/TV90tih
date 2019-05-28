@@ -20,6 +20,7 @@ img {
 }
 
  /* ///////////////////////// main container//////////////////// */
+
 .mainContainer {
   /* grid options and naming */
   display: grid;
@@ -29,6 +30,7 @@ img {
 }
 
 /* ///////////////////////// tv container//////////////////// */
+
 .tv {
   grid-area: tv;
 }
@@ -124,7 +126,6 @@ img {
   -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
      -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
           box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-
 }
 /* images */
 .remote__image {
@@ -170,7 +171,6 @@ img {
 /* buttons */
 .remote__buttonsContainer {
   position: absolute;
-  /* margin-left: 25px; */
   margin-top: 190px;
   width: 195px;
   text-align: center;
@@ -187,15 +187,28 @@ img {
   padding-bottom: 5px;
   border-radius: 7px;
   margin-top: 5px;
+}
+
+.remote__buttonsContainer__button__colorToggle {
+  opacity: 0.5;
+  width: 80%;
+  border: none;
+
+  /* color: #423b33; */
+  font-family: Days One;
+  font-size: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 7px;
+  margin-top: 5px;
+}
+
+.remote__buttonsContainer__button:hover {
+  cursor: pointer;
 
   -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
      -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
           box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-}
-
-.remote__buttonsContainer__button:hover {
-  background-color: #6b451f;
-  cursor: pointer;
 }
 
 .remote__buttonsContainer__volumeText {
