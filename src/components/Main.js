@@ -3,6 +3,12 @@ import React from 'react';
 import YouTube from 'react-youtube';
 // tv image
 import tv from '../images/tv.png';
+// tv noise
+import tvNoise from '../images/tvNoise.gif';
+// tv static sound
+import staticSound from '../images/staticSound.mp3';
+// tv tutorial image
+import tvTutorial from '../images/tvTutorial.png';
 // tvChannelBackground image
 import tvChannelBackground from '../images/tvChannelBackground.png';
 // remote image
@@ -15,11 +21,15 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playingChannelId: "WujNFpZUFGY",
+      playinChannelId: "",
       // video title
       videoTitle: null,
       // change channel image button rotate degrees
       changeChannelImageRotate: 0,
+      // effects turnon/off boolean
+      effectsToggle: true,
+      // volume
+      volume: "50",
       // filmovi
       filmovi: [
         {boolean: true},
@@ -39,9 +49,9 @@ class Main extends React.Component {
       crtaniFilmovi: [
         {boolean: true},
         ["vwB0XUBZk2I","tMvGlwkoZbs","sC30ABctrwc","qTQPFQMjdpY","tYLQAghnQHU","fFyG7-oFnOM","lOrVHxgUnjE","iFciRv3Dp8Y",
-        "0ejNLKnwTjs","pOhDGz6F4Lc","CQpC2jVXYsY","FsAIKieOwjU","EM1xQ73AqkA","M2kKhtGdBco","k8bLJOqE8Nw","MCXkdMWrvGQ",
+        "0ejNLKnwTjs","pOhDGz6F4Lc","CQpC2jVXYsY","EM1xQ73AqkA","M2kKhtGdBco","k8bLJOqE8Nw","MCXkdMWrvGQ",
         "Q_naBFpVcDg","G97O9j0B5hk","bidkK1c-kQ4","nrQ3pizX-00","q2RM-FlG7s8","Tstz0460lg4","vwmFaEf0wds","flERApRbYEg",
-        "6ZA_qVvJjhk","M78G54LNoc8","gHLoCFGNjTY","Ri2AKqFpPCs","kV2P5ngVnQc","snPQjPz1ykY","mYMYjO-h3iA","-SivTCzI5RE",
+        "6ZA_qVvJjhk","M78G54LNoc8","gHLoCFGNjTY","Ri2AKqFpPCs","snPQjPz1ykY","mYMYjO-h3iA","-SivTCzI5RE",
         "Xmo09Q9P4ZE","O5JsnSxP88o","niJ5okAC_F4","ow2ZVa4CjRs","KU3-LY6P74k","MBpqdwfUW7U","hq8ULI_dfNw","UW2Ky9ov7j4",
         "8aRxkuHaCIA","fp7M5kTt1LY","tvTOvg9fSGc","79OUjC0g8oc","QH_RQGjzFZ8","ksQqom3vrk0","ZLIw3-m5Hf0","aCDA6jp9ENo",
         "BFOMS66b0VI","Wo85ofBC9EY","A-nefpQCEqY","qxMCVRY_-_M","Rv7Mse08fJI","RlzUNqxp-cQ","s2bZa13nvb4","xcH5iGEMG1Y",
@@ -61,8 +71,8 @@ class Main extends React.Component {
         "6nwEPq8Qkn0","RGopB2mz03g","y0EmQltqL8Y","hbMOkXK88po","3gnrySZ6GiA","dXL9WT51PIw","4SSiS2YWSAw","AiAYplwjrwM",
         "bmedA220joE","BOMWX7HfuCk","JR6jmsvE7tI","k23XBL-wbIg","oFIcA72WvDo","57sE3cbN32A","T-ZX73ZUl-0",
         "Qr45vgMyxqs","Jr3wTfEuio4","P4WwaghKfVQ","2PFWc3NB_yU","saE3MF4r5WU","RVcKqGg-9Bo","GcQG5dRFweU","P8Ba2rn0ij4",
-        "H0Ug-vgL3Zk","0AkbMFD3-us","YGO9ubx0o4c","fj9JBbshF84","pDNgH0G_Sxs","wIWae8LK4Ic","3is49vWMwFI",
-        "0KiJb63dTY4","sa1yDrGWjyw","j5xDP7H45Qk","6Qwa8spBWUk","0sYQBToCsgI","yg9bzkT-V0g","prM7LPN1OCw",
+        "H0Ug-vgL3Zk","0AkbMFD3-us","YGO9ubx0o4c","pDNgH0G_Sxs","wIWae8LK4Ic","3is49vWMwFI",
+        "0KiJb63dTY4","sa1yDrGWjyw","j5xDP7H45Qk","0sYQBToCsgI","prM7LPN1OCw",
         "Vn9Lf_jfqUo","coqDIi4MTt0","Lk0-J04SjfU","U7rQ5F3mHvg","FSpnJJ2B5sc",
         "aYT0OuibWZQ","OGbCh8d2z6g","WSX9tmwRucY","814QZuYawSc","vFbCUk2fxEo","qgrw5kfmdYU",
         "aSARTT7QqeE","B3NxINU1aTA","4x6VzLzeUlY","GnjTWut3Wn8","hOMkrjU0bx0","YXXFyWCy2Bc","yOL-kSo74tM","ZLroR2V_B-k",
@@ -70,8 +80,8 @@ class Main extends React.Component {
         "IsV0Kgtyf-w","1J-G0vrRPKw","NxecqnIkkpQ","c0hNKkrmnOY","M4Xfh81CNgI","ND3Chx48-D4","EfL9i9d9LbM","r2tcbi9yepI",
         "Cnb08THJ520","IEk1xM1bmjY","12vEJlcYVgQ","FMiJm-fOa6Y","g5qtUZnF_l0","ubg2h_kBYSA","A1X6H-xEHbM","sGUN5R0GJLA",
         "zd5mInPZwik","M8uNvMLhXyU","bhHFN8I0BsU","a2FHHKz5Nh4","a2FHHKz5Nh4","WHr_iS6gojc","Eo3g80ILnl8","ANfy3RpISxk",
-        "RP4dlGIo1Jg","Wqvw1CAqZss","W_6AvAISdPQ","2aUk4-5S1PM","dBMOxcs4e08","6WZsFFswrZs","6MACE3Ab1YU","Al4R7VD-uOg",
-        "DUMRh-p8S3I","qvbvV9srgbs","7P2A9q3W5Uw","YAvPC4_ElDQ","kWfLpAP7XoM","eO-IDYEVrDw",]
+        "RP4dlGIo1Jg","Wqvw1CAqZss","W_6AvAISdPQ","2aUk4-5S1PM","dBMOxcs4e08","6WZsFFswrZs","6MACE3Ab1YU",
+        "qvbvV9srgbs","7P2A9q3W5Uw","YAvPC4_ElDQ","kWfLpAP7XoM","eO-IDYEVrDw",]
       ],
       // emisije
       emisije: [
@@ -100,7 +110,7 @@ class Main extends React.Component {
         ["IW714Qh8JZs","25v306O67NA","rjwcUjLsg8w","2W-WnsYGu2s","lYy6dTLYWW0","4ENUQ8-MLW8","lE4i9w4xhFo","d4T5ElKeGHY",
         "Kdtzf_2iSgM","y0kSJXJbXLs","B_vOWu68yTA","uNO-Hwpo8xg","vipGhfUjVEs","b7l64tC9o9Q","EeVEDF1e0eM","heXaS3zePHs",
         "mMdmSUuxLOs","Ceysv7U9W_U","cdBgsNF8KXU","rVG169ivskw","-9SwDdgfw5k","aQM3UcGRnok","uA2KpmG4moI","Xh6N4xKnHQM",
-        "AHzTj-OcVUo","qzA1zR3VC1g","LEco1lgCm0A","ajgdhGTdd7Y","CcDh-U2OIiA","oEhqLAOb8Po","lid48yQGIAg","2xowkdpW7Mk",
+        "AHzTj-OcVUo","qzA1zR3VC1g","LEco1lgCm0A","ajgdhGTdd7Y","CcDh-U2OIiA","lid48yQGIAg","2xowkdpW7Mk",
         "5FOAlPVZp1E","iUt-T1klyrs"]
       ]
     };
@@ -108,6 +118,8 @@ class Main extends React.Component {
     this.videoReady = this.videoReady.bind(this);
     this.changeCategory = this.changeCategory.bind(this);
     this.volumeChange = this.volumeChange.bind(this);
+    this.youTubeLink = this.youTubeLink.bind(this);
+    this.effectsToggle = this.effectsToggle.bind(this);
   }
 
   videoReady(event) {
@@ -117,11 +129,38 @@ class Main extends React.Component {
     this.setState({
       videoTitle: title
     })
+    event.target.setVolume(this.state.volume);
   }
 
   videoEnd(event) {
     // loops the video when it ends
     event.target.playVideo();
+  }
+
+  // changing the volume
+  volumeChange(event) {
+    this.setState({
+      volume: event.target.value
+    })
+    // this.videoReady();
+  }
+
+  // clicking the youtube button to go to youtube page
+  youTubeLink() {
+    window.open(
+      'https://www.youtube.com/watch?v=' + this.state.playinChannelId,
+      '_blank' // <- This is what makes it open in a new window.
+    );
+  }
+
+  // toggle function for effects
+  effectsToggle(event) {
+    // this.state.effectsToggle = this.state.effectsToggle = !this.state.effectsToggle;
+    this.setState(prevState => ({
+      effectsToggle: !prevState.effectsToggle
+    }));
+    // console.log(this.state.effectsToggle);
+    event.target.classList.toggle('buttonEffectContainerButton__effectsToggle');
   }
 
   ////////////// changing/toggling the category
@@ -143,56 +182,56 @@ class Main extends React.Component {
     // toggling the boolean of true false/selected or not
     if(categoryValue === "filmovi") {
       filmovi[0].boolean = filmovi[0].boolean = !filmovi[0].boolean;
-      this.setState(prevState => ({ filmovi: filmovi })
-      );
+      this.setState(prevState => ({ filmovi: filmovi }));
     }
-    //
     if(categoryValue === "serije") {
       serije[0].boolean = serije[0].boolean = !serije[0].boolean;
-      this.setState(prevState => ({ serije: serije })
-      );
+      this.setState(prevState => ({ serije: serije }));
     }
-    //
     if(categoryValue === "crtaniFilmovi") {
       crtaniFilmovi[0].boolean = crtaniFilmovi[0].boolean = !crtaniFilmovi[0].boolean;
-      this.setState(prevState => ({ crtaniFilmovi: crtaniFilmovi })
-      );
+      this.setState(prevState => ({ crtaniFilmovi: crtaniFilmovi }));
     }
-    //
     if(categoryValue === "muzika") {
       muzika[0].boolean = muzika[0].boolean = !muzika[0].boolean;
-      this.setState(prevState => ({ muzika: muzika })
-      );
+      this.setState(prevState => ({ muzika: muzika }));
     }
-    //
     if(categoryValue === "emisije") {
       emisije[0].boolean = emisije[0].boolean = !emisije[0].boolean;
-      this.setState(prevState => ({ emisije: emisije })
-      );
+      this.setState(prevState => ({ emisije: emisije }));
     }
-    //
     if(categoryValue === "sport") {
       sport[0].boolean = sport[0].boolean = !sport[0].boolean;
-      this.setState(prevState => ({ sport: sport })
-      );
+      this.setState(prevState => ({ sport: sport }));
     }
-    //
     if(categoryValue === "reklame") {
       reklame[0].boolean = reklame[0].boolean = !reklame[0].boolean;
-      this.setState(prevState => ({ reklame: reklame })
-      );
+      this.setState(prevState => ({ reklame: reklame }));
     }
   }
 
-  // changing the volume
-  volumeChange(event) {
-    // console.log(event.target.value);
-    // player.setVolume(event.target.value);
-  }
-
-  ////////////// changing the channel function
+  ////////////// changing the channel
   changeChannel() {
+    // hide tutorial image
+    document.getElementsByClassName('tv__tutorialImage')[0].style.display = "none";
 
+    // effects functions if the effects are true/enabled
+    if ( this.state.effectsToggle === true ) {
+      // start tv noise gif for 2 seconds with the setTimeout func
+      document.getElementsByClassName('tv__noise')[0].style.display = "block";
+      setTimeout(function() {
+        document.getElementsByClassName('tv__noise')[0].style.display = "none";
+      }, 1200);
+      // start static sound effects
+      var sound = document.getElementsByClassName("tv__staticSoundEffects")[0];
+
+      sound.volume = 0.006;
+      sound.play();
+
+      setTimeout(function() {
+        sound.pause();
+      }, 1200);
+    }
     // button animation/rotation
     // gradially increasing rotate angle by 10
     let rotateAngle = this.state.changeChannelImageRotate;
@@ -206,7 +245,7 @@ class Main extends React.Component {
     // creating arrays for channels
     let allChannelsPool = [];
     let finalChannel;
-
+    // merging true array into allChannelsPool
     if (this.state.filmovi[0].boolean === true) { allChannelsPool.push(this.state.filmovi[1]);}
     if (this.state.serije[0].boolean === true) {allChannelsPool.push(this.state.serije[1]);}
     if (this.state.crtaniFilmovi[0].boolean === true) {allChannelsPool.push(this.state.crtaniFilmovi[1]);}
@@ -224,7 +263,6 @@ class Main extends React.Component {
     this.setState({
       playinChannelId: merged[finalChannel]
     })
-    // console.log(this.state.playingChannelId);
   }
 
   render() {
@@ -244,7 +282,6 @@ class Main extends React.Component {
         start: 25
       }
     };
-
 
       return (
         <div className="mainContainer">
@@ -266,6 +303,20 @@ class Main extends React.Component {
               <h3 className="tv__tvChannelBackground__subTitle">{this.state.videoTitle}</h3>
               <img className="tv__tvChannelBackground__image" src={tvChannelBackground} alt="tvChannelBackground" />
             </div>
+            {/* static sound effect */}
+            <audio className="tv__staticSoundEffects">
+              <source src={staticSound} type="audio/mpeg" />
+              Your browser does not support the audio element.
+            </audio>
+            {/* youtube link button */}
+            <button className="tv__tvChannelBackground__youTubeLink" onClick={this.youTubeLink}>YouTube link</button>
+            {/* facebook link button */}
+            <button className="tv__tvChannelBackground__facebookLink">Facebook<br/><span style={{fontSize: "0.7em", color: "#a3a3a3"}}>(uskoro)</span>
+            </button>
+            {/* tv tutorial image */}
+            <img className="tv__tutorialImage" src={tvTutorial} alt="tvTutorial" />
+            {/* tv noise image */}
+            <img className="tv__noise" src={tvNoise} alt="tvNoise" />
             {/* main tv image */}
             <img className="tv__image" src={tv} alt="tv" />
 
@@ -290,7 +341,7 @@ class Main extends React.Component {
               <h3 className="remote__buttonsContainer__volumeText">Promenite zvuk</h3>
               <input className="remote__buttonsContainer__volume" onChange={this.volumeChange} type="range" min="1" max="100" />
 
-              <button className="remote__buttonsContainer__button buttonEffectContainerButton">iskljucite efekte</button>
+              <button className="remote__buttonsContainer__button buttonEffectContainerButton" onClick={this.effectsToggle}>iskljucite efekte</button>
 
             </div>
             {/* main remote image */}

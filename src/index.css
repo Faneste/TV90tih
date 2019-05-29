@@ -3,10 +3,25 @@ body {
   padding: 0;
   /* stylized button font */
   font-family:'Days One', sans-serif;
-  /* pixel channel font */
-  font-family:'VT323', monospace;
   background: url("images/background.jpg");
   background-attachment: fixed;
+}
+
+/* pixel channel font */
+/* @font-face { font-family: pixelFont; src: url('./pixelFont.ttf'); } */
+
+@font-face {
+  font-family: 'pixelFont';
+  /* font-style: normal; */
+  /* font-weight: 400; */
+  /* font-size: 2em; */
+  src: url('./pixelFont.ttf'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans'),
+       url('./pixelFont.ttf') format('embedded-opentype'), /* IE6-IE8 */
+       url('./pixelFont.ttf') format('woff2'), /* Super Modern Browsers */
+       url('./pixelFont.ttf') format('woff'), /* Modern Browsers */
+       url('./pixelFont.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('./pixelFont.ttf') format('svg'); /* Legacy iOS */
 }
 
 /* disabling image dragging */
@@ -33,6 +48,7 @@ img {
 
 .tv {
   grid-area: tv;
+  position: relative;
 }
 
 .tv__image {
@@ -40,23 +56,88 @@ img {
   z-index: 0;
 }
 
+.tv__tutorialImage {
+  position: absolute;
+  z-index: -1;
+}
+
+.tv__noise {
+  display: none;
+  position: absolute;
+  z-index: -1;
+}
+
 .tv__tvChannelBackground {
   position: relative;
   float: right;
-  margin-right: 45px;
-  margin-top: 70px;
+  margin-right: 39px;
+  margin-top: 65px;
   z-index: 99;
   text-align: center;
+}
+
+.tv__tvChannelBackground__youTubeLink {
+  /* position: absolute; */
+  /* float: right; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  /* bottom: 0; */
+  /* width: 80%; */
+  border: none;
+  background-color: #9e1e1d;
+  color: white;
+  font-family: Days One;
+  font-size: 1em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 7px;
+  margin-right: 48px;
+  margin-bottom: 130px;
+}
+
+.tv__tvChannelBackground__facebookLink {
+  /* position: absolute; */
+  /* float: right; */
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  z-index: 10;
+  /* bottom: 0; */
+  /* width: 80%; */
+  border: none;
+  background-color: #185492;
+  color: white;
+  font-family: Days One;
+  font-size: 1em;
+  /* padding-top: 5px; */
+  /* padding-bottom: 5px; */
+  padding-right: 22px;
+  padding-left: 22px;
+  border-radius: 7px;
+  margin-right: 48px;
+  margin-bottom: 95px;
+}
+
+.tv__tvChannelBackground__youTubeLink:hover {
+  cursor: pointer;
+  background-color: #c81e1c;
+}
+
+.tv__tvChannelBackground__facebookLink:hover {
+  cursor: pointer;
+  background-color: #1d7cde;
 }
 
 .tv__tvChannelBackground__title {
   position: absolute;
   font: Days One;
   color: #ca1212;
-  font-size: 1em;
+  font-size: 0.9em;
   width: 124px;
-  margin-top: 2px;
-  margin-left: 5px;
+  margin-top: 7px;
+  margin-left: 12px;
 
   -webkit-animation: blink 0.5s linear infinite;
      -moz-animation: blink 0.5s linear infinite;
@@ -81,11 +162,11 @@ img {
   position: absolute;
   font: Days One;
   color: #ca1212;
-  font-size: 1.2em;
-  line-height: 0.8;
+  font-size: 0.9em;
+  line-height: 1;
   width: 124px;
-  margin-top: 30px;
-  margin-left: 5px;
+  margin-top: 37px;
+  margin-left: 12px;
 
   -webkit-animation: flicker 2s linear infinite;
      -moz-animation: flicker 2s linear infinite;
@@ -116,6 +197,7 @@ img {
   position: absolute;
   margin-left: 70px;
   margin-top: 40px;
+  z-index: -2;
 }
 
 /* ///////////////////////// remote container //////////////////// */
@@ -225,6 +307,17 @@ img {
 .buttonEffectContainerButton {
   font-size: 0.7em!important;
   margin-top: 15px;
+}
+
+.buttonEffectContainerButton__effectsToggle {
+  font-size: 0.7em!important;
+  margin-top: 15px;
+  opacity: 0.5;
+}
+
+br {
+   display: block;
+   margin: -5px 0;
 }
 
 /*  */
