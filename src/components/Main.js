@@ -3,6 +3,8 @@ import React from 'react';
 import YouTube from 'react-youtube';
 // tv image
 import tv from '../images/tv.png';
+// ei nis logo
+import eiNisLogo from '../images/eiNisLogo.png';
 // tv noise
 import tvNoise from '../images/tvNoise.gif';
 // tv static sound
@@ -13,6 +15,12 @@ import tvTutorial from '../images/tvTutorial.png';
 import tvChannelBackground from '../images/tvChannelBackground.png';
 // remote image
 import remote from '../images/remote.png';
+// background image default
+import backgroundDefault from '../images/backgroundDefault.jpg';
+// background image one
+import backgroundOne from '../images/backgroundOne.jpg';
+// background image two
+import backgroundTwo from '../images/backgroundTwo.jpg';
 // changeChannelButtonImage image
 import changeChannelButtonImage from '../images/changeChannelButtonImage.png';
 
@@ -24,6 +32,10 @@ class Main extends React.Component {
       playinChannelId: "",
       // video title
       videoTitle: null,
+      // background variables
+      backgrounds: [ backgroundDefault, backgroundOne, backgroundTwo],
+      // background change order
+      backgroundOrder: 1,
       // change channel image button rotate degrees
       changeChannelImageRotate: 0,
       // effects turnon/off boolean
@@ -34,7 +46,7 @@ class Main extends React.Component {
       filmovi: [
         {boolean: true},
         ["kFbek0iACAw","ZmmldPvWXkw","3oy7-QD6xTM","W9qNiSPqUXY","X_oQQ-tuIMk","wlzS-XoxtKA","h59T5cyp-Vk","9Dc-IWCxP2I",
-        "Ew3H20TiW_M"]
+        "Ew3H20TiW_M", "Z00OjcrZZgs", "y32D7CNB64g", "eMx72umFBpY", "aruCUieul5E", "lVPfVApjDAM", "E9rNiO3gTBI"]
       ],
       // serije
       serije: [
@@ -52,7 +64,7 @@ class Main extends React.Component {
         "0ejNLKnwTjs","pOhDGz6F4Lc","CQpC2jVXYsY","EM1xQ73AqkA","M2kKhtGdBco","k8bLJOqE8Nw","MCXkdMWrvGQ",
         "Q_naBFpVcDg","G97O9j0B5hk","bidkK1c-kQ4","nrQ3pizX-00","q2RM-FlG7s8","Tstz0460lg4","vwmFaEf0wds","flERApRbYEg",
         "6ZA_qVvJjhk","M78G54LNoc8","gHLoCFGNjTY","Ri2AKqFpPCs","snPQjPz1ykY","mYMYjO-h3iA","-SivTCzI5RE",
-        "Xmo09Q9P4ZE","O5JsnSxP88o","niJ5okAC_F4","ow2ZVa4CjRs","KU3-LY6P74k","MBpqdwfUW7U","hq8ULI_dfNw","UW2Ky9ov7j4",
+        "Xmo09Q9P4ZE","O5JsnSxP88o","niJ5okAC_F4","KU3-LY6P74k","MBpqdwfUW7U","hq8ULI_dfNw","UW2Ky9ov7j4",
         "8aRxkuHaCIA","fp7M5kTt1LY","tvTOvg9fSGc","79OUjC0g8oc","QH_RQGjzFZ8","ksQqom3vrk0","ZLIw3-m5Hf0","aCDA6jp9ENo",
         "BFOMS66b0VI","Wo85ofBC9EY","A-nefpQCEqY","qxMCVRY_-_M","Rv7Mse08fJI","RlzUNqxp-cQ","s2bZa13nvb4","xcH5iGEMG1Y",
         "UdbtEkpOhG8","RJD02J8ykhg","u6pWoMQMt-w","-BKmGjL3Vlk","Bc5B3OiRWbM","na7OHndn2Ms","rvF-24XsmQo",
@@ -75,7 +87,7 @@ class Main extends React.Component {
         "0KiJb63dTY4","sa1yDrGWjyw","j5xDP7H45Qk","0sYQBToCsgI","prM7LPN1OCw",
         "Vn9Lf_jfqUo","coqDIi4MTt0","Lk0-J04SjfU","U7rQ5F3mHvg","FSpnJJ2B5sc",
         "aYT0OuibWZQ","OGbCh8d2z6g","WSX9tmwRucY","814QZuYawSc","vFbCUk2fxEo","qgrw5kfmdYU",
-        "aSARTT7QqeE","B3NxINU1aTA","4x6VzLzeUlY","GnjTWut3Wn8","hOMkrjU0bx0","YXXFyWCy2Bc","yOL-kSo74tM","ZLroR2V_B-k",
+        "aSARTT7QqeE","B3NxINU1aTA","GnjTWut3Wn8","hOMkrjU0bx0","YXXFyWCy2Bc","yOL-kSo74tM","ZLroR2V_B-k",
         "FT-FjWwQhQQ","WrMbpfiVh2g","7zEyDqoXY1g","UO9N2EEs6ys","EzNIuuV5mjs","sUhLpjQqVAc","bRyaeTlbhlM","bg-72UZsIYw",
         "IsV0Kgtyf-w","1J-G0vrRPKw","NxecqnIkkpQ","c0hNKkrmnOY","M4Xfh81CNgI","ND3Chx48-D4","EfL9i9d9LbM","r2tcbi9yepI",
         "Cnb08THJ520","IEk1xM1bmjY","12vEJlcYVgQ","FMiJm-fOa6Y","g5qtUZnF_l0","ubg2h_kBYSA","A1X6H-xEHbM","sGUN5R0GJLA",
@@ -120,6 +132,35 @@ class Main extends React.Component {
     this.volumeChange = this.volumeChange.bind(this);
     this.youTubeLink = this.youTubeLink.bind(this);
     this.effectsToggle = this.effectsToggle.bind(this);
+    // space function for changing channel
+    this.escFunction = this.escFunction.bind(this);
+    // ei nis logo function
+    this.eiNisLogo = this.eiNisLogo.bind(this);
+    // background change function
+    this.backgroundChange = this.backgroundChange.bind(this);
+  }
+
+  componentDidMount(){
+    document.addEventListener("keydown", this.escFunction, false);
+  }
+
+  // change channel by pressing space
+  escFunction(event){
+    if(event.keyCode === 32) {
+      console.log("esc");
+      this.changeChannel();
+    }
+  }
+
+  // ei nis logo play
+  eiNisLogo() {
+    console.log("ei nis");
+    this.setState({
+      playinChannelId: "MeG_3URH72o"
+    })
+    // hide tutorial image if no channel is playing at start
+    document.getElementsByClassName('tv__tutorialImage')[0].style.display = "none";
+
   }
 
   videoReady(event) {
@@ -155,12 +196,20 @@ class Main extends React.Component {
 
   // toggle function for effects
   effectsToggle(event) {
-    // this.state.effectsToggle = this.state.effectsToggle = !this.state.effectsToggle;
     this.setState(prevState => ({
       effectsToggle: !prevState.effectsToggle
     }));
     // console.log(this.state.effectsToggle);
     event.target.classList.toggle('buttonEffectContainerButton__effectsToggle');
+  }
+
+  // change background
+  backgroundChange() {
+    this.setState(prevState => ({ backgroundOrder: this.state.backgroundOrder + 1 }));
+    document.body.style.backgroundImage = 'url(' + this.state.backgrounds[this.state.backgroundOrder] + ')';
+    if( this.state.backgroundOrder === 2 ) {
+      this.setState(prevState => ({ backgroundOrder: 0 }));
+    }
   }
 
   ////////////// changing/toggling the category
@@ -172,13 +221,13 @@ class Main extends React.Component {
     // button category name/value
     let categoryValue = event.target.value;
     // storing state into variable so that I can change the boolean and put back the state
-    let filmovi = this.state.filmovi;
-    let serije = this.state.serije;
-    let crtaniFilmovi = this.state.crtaniFilmovi;
-    let muzika = this.state.muzika;
-    let emisije = this.state.emisije;
-    let sport = this.state.sport;
-    let reklame = this.state.reklame;
+    let { filmovi } = this.state;
+    let { serije } = this.state;
+    let { crtaniFilmovi } = this.state;
+    let { muzika } = this.state;
+    let { emisije } = this.state;
+    let { sport } = this.state;
+    let { reklame } = this.state;
     // toggling the boolean of true false/selected or not
     if(categoryValue === "filmovi") {
       filmovi[0].boolean = filmovi[0].boolean = !filmovi[0].boolean;
@@ -279,7 +328,8 @@ class Main extends React.Component {
         iv_load_policy: 3,
         loop: 1,
         modestbranding: 1,
-        start: 25
+        start: 25,
+        suggestedQuality: "small"
       }
     };
 
@@ -287,6 +337,9 @@ class Main extends React.Component {
         <div className="mainContainer">
           {/* tv */}
           <div className="tv">
+
+            {/* hidden element for space button keypress change channel */}
+            <input className="spaceInput"/>
 
             {/* youtube api with options */}
             <YouTube
@@ -301,18 +354,21 @@ class Main extends React.Component {
             <div className="tv__tvChannelBackground">
               <h3 className="tv__tvChannelBackground__title">OPIS KANALA</h3>
               <h3 className="tv__tvChannelBackground__subTitle">{this.state.videoTitle}</h3>
+              {/* ei nis logo */}
+              <img className="tv__eiNisLogo" onClick={this.eiNisLogo} src={eiNisLogo} alt="eiNisLogo" />
+              {/* black background image for channel info */}
               <img className="tv__tvChannelBackground__image" src={tvChannelBackground} alt="tvChannelBackground" />
             </div>
             {/* static sound effect */}
             <audio className="tv__staticSoundEffects">
               <source src={staticSound} type="audio/mpeg" />
-              Your browser does not support the audio element.
             </audio>
             {/* youtube link button */}
             <button className="tv__tvChannelBackground__youTubeLink" onClick={this.youTubeLink}>YouTube link</button>
             {/* facebook link button */}
-            <button className="tv__tvChannelBackground__facebookLink">Facebook<br/><span style={{fontSize: "0.7em", color: "#a3a3a3"}}>(uskoro)</span>
-            </button>
+            <button className="tv__tvChannelBackground__facebookLink">Facebook<br/><span style={{fontSize: "0.7em", color: "#a3a3a3"}}>(uskoro)</span></button>
+            {/* github project link */}
+            <a className="tv__tvChannelBackground__gitHubLink" href="https://github.com/Faneste/TV90tih" target="_blank" rel="noopener noreferrer">GitHub project</a>
             {/* tv tutorial image */}
             <img className="tv__tutorialImage" src={tvTutorial} alt="tvTutorial" />
             {/* tv noise image */}
@@ -325,7 +381,7 @@ class Main extends React.Component {
           <div className="remote">
             {/* change the channel button */}
             <div onClick={this.changeChannel} className="remote__changeChannelButtonImage__container">
-              <h2 className="remote__changeChannelButtonImage__container__text">Promeni kanal</h2>
+              <h2 className="remote__changeChannelButtonImage__container__text">Promeni kanal<br className="promeniKanalBr"/><span style={{fontSize: "0.7em", fontWeight: "400"}}>(space dug)</span></h2>
               <img className="remote__changeChannelButtonImage__container__image" src={changeChannelButtonImage} alt="changeChannelButtonImage" />
             </div>
             {/* category buttons and other container */}
@@ -338,10 +394,11 @@ class Main extends React.Component {
               <button className="remote__buttonsContainer__button" onClick={this.changeCategory} value="sport">Sport</button>
               <button className="remote__buttonsContainer__button" onClick={this.changeCategory} value="reklame">Reklame</button>
 
-              <h3 className="remote__buttonsContainer__volumeText">Promenite zvuk</h3>
+              <h3 className="remote__buttonsContainer__volumeText">Promenite zvuk<br/><span style={{fontSize: "0.7em", fontWeight: "400"}}>(uskoro)</span></h3>
               <input className="remote__buttonsContainer__volume" onChange={this.volumeChange} type="range" min="1" max="100" />
 
-              <button className="remote__buttonsContainer__button buttonEffectContainerButton" onClick={this.effectsToggle}>iskljucite efekte</button>
+              <button className="remote__buttonsContainer__button buttonEffectContainerButton" onClick={this.effectsToggle}>iskljuci efekte</button>
+              <button className="remote__buttonsContainer__button buttonBackgroundContainerButton" onClick={this.backgroundChange}>promeni pozadinu</button>
 
             </div>
             {/* main remote image */}

@@ -3,18 +3,13 @@ body {
   padding: 0;
   /* stylized button font */
   font-family:'Days One', sans-serif;
-  background: url("images/background.jpg");
+  background: url("images/backgroundDefault.jpg");
   background-attachment: fixed;
 }
 
 /* pixel channel font */
-/* @font-face { font-family: pixelFont; src: url('./pixelFont.ttf'); } */
-
 @font-face {
   font-family: 'pixelFont';
-  /* font-style: normal; */
-  /* font-weight: 400; */
-  /* font-size: 2em; */
   src: url('./pixelFont.ttf'); /* IE9 Compat Modes */
   src: local('Open Sans'), local('OpenSans'),
        url('./pixelFont.ttf') format('embedded-opentype'), /* IE6-IE8 */
@@ -35,7 +30,6 @@ img {
 }
 
  /* ///////////////////////// main container//////////////////// */
-
 .mainContainer {
   /* grid options and naming */
   display: grid;
@@ -45,10 +39,13 @@ img {
 }
 
 /* ///////////////////////// tv container//////////////////// */
-
 .tv {
   grid-area: tv;
   position: relative;
+}
+/* hidden input for space press change channel */
+.spaceInput {
+  display: none;
 }
 
 .tv__image {
@@ -76,43 +73,47 @@ img {
   text-align: center;
 }
 
+.tv__eiNisLogo {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  margin-bottom: -50px;
+  margin-left: 10px;
+}
+
+.tv__eiNisLogo:hover {
+  cursor: pointer;
+  /* outline: 2px solid black; */
+  -webkit-filter: invert(100%);filter: invert(100%);
+}
+
 .tv__tvChannelBackground__youTubeLink {
-  /* position: absolute; */
-  /* float: right; */
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 10;
-  /* bottom: 0; */
-  /* width: 80%; */
   border: none;
   background-color: #9e1e1d;
   color: white;
   font-family: Days One;
   font-size: 1em;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  padding-top: 2px;
+  padding-bottom: 2px;
   border-radius: 7px;
   margin-right: 48px;
   margin-bottom: 130px;
 }
 
 .tv__tvChannelBackground__facebookLink {
-  /* position: absolute; */
-  /* float: right; */
   position: absolute;
   bottom: 0;
   right: 0;
   z-index: 10;
-  /* bottom: 0; */
-  /* width: 80%; */
   border: none;
   background-color: #185492;
   color: white;
   font-family: Days One;
   font-size: 1em;
-  /* padding-top: 5px; */
-  /* padding-bottom: 5px; */
   padding-right: 22px;
   padding-left: 22px;
   border-radius: 7px;
@@ -130,6 +131,28 @@ img {
   background-color: #1d7cde;
 }
 
+.tv__tvChannelBackground__gitHubLink {
+  position: absolute;
+  bottom: -65px;
+  right: 0;
+  z-index: 10;
+  /* font-weight: 300; */
+  color: #100b0a;
+  font-family: Days One;
+  font-size: 0.8em;
+  /* padding-right: 22px; */
+  /* padding-left: 22px; */
+  border-radius: 7px;
+  /* padding-top: -20px; */
+  margin-right: 60px;
+  margin-bottom: 95px;
+  text-decoration: none;
+}
+
+.tv__tvChannelBackground__gitHubLink:hover {
+  color: #fff;
+}
+
 .tv__tvChannelBackground__title {
   position: absolute;
   font: Days One;
@@ -139,22 +162,21 @@ img {
   margin-top: 7px;
   margin-left: 12px;
 
-  -webkit-animation: blink 0.5s linear infinite;
-     -moz-animation: blink 0.5s linear infinite;
-      -ms-animation: blink 0.5s linear infinite;
-       -o-animation: blink 0.5s linear infinite;
-          animation: blink 0.5s linear infinite;
+  -webkit-animation: blink 1s linear infinite;
+     -moz-animation: blink 1s linear infinite;
+      -ms-animation: blink 1s linear infinite;
+       -o-animation: blink 1s linear infinite;
+          animation: blink 1s linear infinite;
 }
 
 @keyframes blink {
   to {
     text-shadow: 0px 0px 3px #ca1212;
-    /* color: #910d0d; */
   }
 }
 @-webkit-keyframes blink {
   to {
-    text-shadow: 2px 2px 5px #ca1212;
+    text-shadow: 0px 0px 3px #ca1212;
   }
 }
 
@@ -167,18 +189,18 @@ img {
   width: 124px;
   margin-top: 37px;
   margin-left: 12px;
+  word-break: break-word;
 
-  -webkit-animation: flicker 2s linear infinite;
-     -moz-animation: flicker 2s linear infinite;
-      -ms-animation: flicker 2s linear infinite;
-       -o-animation: flicker 2s linear infinite;
-          animation: flicker 2s linear infinite;
+  -webkit-animation: blink 1s linear infinite;
+     -moz-animation: blink 1s linear infinite;
+      -ms-animation: blink 1s linear infinite;
+       -o-animation: blink 1s linear infinite;
+          animation: blink 1s linear infinite;
 }
 
 @keyframes flicker {
   to {
     text-shadow: 0px 0px 3px #ca1212;
-    /* color: #910d0d; */
   }
 }
 @-webkit-keyframes flicker {
@@ -192,7 +214,6 @@ img {
 }
 
 /* ///////////////////////// youtube player //////////////////// */
-
 .youtubePlayer {
   position: absolute;
   margin-left: 70px;
@@ -205,9 +226,9 @@ img {
   grid-area: remote;
   width: 195px;
 
-  -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+  /* -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
      -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-          box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
+          box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43); */
 }
 /* images */
 .remote__image {
@@ -226,11 +247,16 @@ img {
   width: 80%;
   z-index: 10;
   color: white;
+  line-height: 1;
   pointer-events:none;
   margin-left: 13px;
   padding-top: 35px;
   font-size: 1em;
   font-family: Days One!important;
+}
+
+.promeniKanalBr {
+  margin-top: 2px;
 }
 
 .remote__changeChannelButtonImage__container__text:hover {
@@ -306,18 +332,21 @@ img {
 
 .buttonEffectContainerButton {
   font-size: 0.7em!important;
-  margin-top: 15px;
+  margin-top: 5px;
 }
 
 .buttonEffectContainerButton__effectsToggle {
   font-size: 0.7em!important;
-  margin-top: 15px;
+  /* margin-top: 15px; */
   opacity: 0.5;
+}
+
+.buttonBackgroundContainerButton {
+  font-size: 0.7em!important;
+  margin-top: 5px;
 }
 
 br {
    display: block;
    margin: -5px 0;
 }
-
-/*  */
