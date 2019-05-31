@@ -1,3 +1,4 @@
+@media (min-width: 320px) and (max-width: 1200px) {
 body {
   margin: 0;
   padding: 0;
@@ -33,15 +34,19 @@ img {
 .mainContainer {
   /* grid options and naming */
   display: grid;
-  grid-template-columns: 903px auto;
+  grid-template-columns: auto;
+  grid-template-columns: 100%;
+  grid-template-rows: 100% 100%;
   grid-template-areas:
-  "tv remote";
+  "tv"
+  "remote";
 }
 
 /* ///////////////////////// tv container//////////////////// */
 .tv {
   grid-area: tv;
   position: relative;
+  width: 100%;
 }
 /* hidden input for space press change channel */
 .spaceInput {
@@ -51,85 +56,92 @@ img {
 .tv__image {
   position: absolute;
   z-index: 0;
+  width: 100%;
 }
 
 .tv__tutorialImage {
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 .tv__noise {
   display: none;
   position: absolute;
   z-index: -1;
+  width: 100%;
 }
 
 .tv__tvChannelBackground {
-  position: relative;
-  width: 144px;
-  height: 450px;
-  float: right;
-  margin-right: 39px;
-  margin-top: 65px;
+
+  /* display: none; */
+
+  position: absolute;
+  width: 95%;
+  margin: 0px auto;
+  height: 140px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  margin-top: 67%;
   z-index: 99;
   text-align: center;
-  /* background-color: red; */
+  background: rgba(73, 27, 13, 0.8);
+  border-radius: 10px;
 }
 
 .tv__eiNisLogo {
-  /* position: absolute; */
-  /* bottom: 0; */
-  z-index: 10;
-  /* margin-bottom: -50px; */
-  /* margin-left: 10px; */
-}
-
-.tv__eiNisLogo:hover {
-  cursor: pointer;
-  /* outline: 2px solid black; */
-  -webkit-filter: invert(100%);filter: invert(100%);
+  display: none;
 }
 
 .tv__tvChannelBackground__youTubeLink {
-  /* position: absolute; */
+  /* position: relative;
+    display: inline-block; */
   /* bottom: 0;
   right: 0; */
-  width: 91%;
+  width: 90%;
+  height: 25px;
   z-index: 10;
   border: none;
   background-color: #9e1e1d;
   color: white;
   font-family: Days One;
-  font-size: 1em;
+  font-size: 0.7em;
   /* padding-top: 2px;
   padding-bottom: 2px; */
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 7px;
-  margin-top: 153px;
+
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 3px;
+  margin-top: 0px;
   /* margin-right: 48px;
   margin-bottom: 130px; */
 }
 
 .tv__tvChannelBackground__facebookLink {
-  /* position: absolute; */
+  /* position: relative;
+    display: inline-block; */
   /* bottom: 0;
   right: 0; */
-  width: 93%;
+  display: inline;
+  width: 90%;
+  height: 25px;
   z-index: 10;
   border: none;
   background-color: #185492;
   color: white;
   font-family: Days One;
-  font-size: 1em;
-  /* padding-right: 22px; */
-  /* padding-left: 22px; */
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-radius: 7px;
+  font-size: 0.7em;
+  padding-right: 0px;
+  padding-left: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 3px;
   /* margin-right: 48px; */
   /* margin-bottom: 95px; */
-  margin-top: 5px;
+  margin-top: 7px;
 }
 
 .tv__tvChannelBackground__youTubeLink:hover {
@@ -143,14 +155,14 @@ img {
 }
 
 .tv__tvChannelBackground__gitHubLink {
-  display: block;
+  /* display: none; */
   position: relative;
   /* position: absolute;
   bottom: -65px;
   right: 0; */
   z-index: 10;
   /* font-weight: 300; */
-  color: #100b0a;
+  color: #fff;
   font-family: Days One;
   font-size: 0.8em;
   /* padding-right: 22px; */
@@ -159,8 +171,12 @@ img {
   /* padding-top: -20px; */
   /* margin-right: 60px;
   margin-bottom: 95px; */
-  margin-top: 45px;
+
+  width: 90%;
+  margin: 0px auto;
+  margin-top: 10px;
   text-decoration: none;
+  border: 1px solid white;
 }
 
 .tv__tvChannelBackground__gitHubLink:hover {
@@ -168,20 +184,29 @@ img {
 }
 
 .tv__tvChannelBackground__title {
-  position: relative;
+
+
+
+  /* display: none; */
+
+
+  /* position: relative; */
   font: Days One;
-  color: #ca1212;
-  font-size: 0.9em;
+  color: #fff;
+  font-size: 0.6em;
+  font-weight: 400;
   z-index: 1;
-  /* width: 124px; */
+  /* margin-top: 3px; */
+  margin-bottom: 0px;
+  /* width: 100%; */
   /* margin-top: 7px;
   margin-left: 12px; */
 
-  -webkit-animation: blink 1s linear infinite;
-     -moz-animation: blink 1s linear infinite;
-      -ms-animation: blink 1s linear infinite;
-       -o-animation: blink 1s linear infinite;
-          animation: blink 1s linear infinite;
+  -webkit-animation: none;
+     -moz-animation: none;
+      -ms-animation: none;
+       -o-animation: none;
+          animation: none;
 }
 
 @keyframes blink {
@@ -196,24 +221,28 @@ img {
 }
 
 .tv__tvChannelBackground__subTitle {
-  position: absolute;
+  position: relative;
+  display: block;
+  height: 15px;
+  text-align: center;
   font: Days One;
-  color: #ca1212;
-  font-size: 0.9em;
+  color: #fff;
+  font-size: 0.6em;
+  font-weight: 400;
   line-height: 1;
   z-index: 5;
-  width: 90%;
+  width: 100%;
   /* margin: 0px auto; */
   text-align: center;
-  margin-top: -10px;
-  margin-left: 5px;
+  margin-top: 0px;
+  margin-left: 0px;
   word-break: break-word;
 
-  -webkit-animation: blink 1s linear infinite;
-     -moz-animation: blink 1s linear infinite;
-      -ms-animation: blink 1s linear infinite;
-       -o-animation: blink 1s linear infinite;
-          animation: blink 1s linear infinite;
+  -webkit-animation: none;
+     -moz-animation: none;
+      -ms-animation: none;
+       -o-animation: none;
+          animation: none;
 }
 
 @keyframes flicker {
@@ -228,25 +257,57 @@ img {
 }
 
 .tv__tvChannelBackground__image {
+    display: none;
+
     margin: 0px auto;
-    margin-top: -42px;
+    margin-top: 0px;
     margin-left: -3px;
     z-index: -1;
+    width: 100%;
 }
 
 /* ///////////////////////// youtube player //////////////////// */
-.youtubePlayer {
+.youtubePlayerContainer {
   position: absolute;
-  margin-left: 70px;
-  margin-top: 40px;
-  z-index: -2;
+  width: 80%;
+  padding-top: 65%;
+  top: 0;
+}
+
+.youtubePlayer {
+  display: block;
+  width: 90%;
+  height: 93%;
+  width: 90%;
+  top: 5% !important;
+  left: 4%;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  margin-left: 0px;
+  margin-top: 0px;
 }
 
 /* ///////////////////////// remote container //////////////////// */
 .remote {
   grid-area: remote;
-  width: 195px;
-  margin-top: 27px;
+
+
+  /* display: none; */
+  position: absolute;
+  /* width: 50%; */
+  margin: 0px auto;
+  height: 140px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  margin-top: 100%;
+
+
+  /* width: 195px;
+  margin-top: 27px; */
 
   /* -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
      -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
@@ -371,4 +432,5 @@ img {
 br {
    display: block;
    margin: -5px 0;
+}
 }

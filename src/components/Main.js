@@ -62,11 +62,11 @@ class Main extends React.Component {
         {boolean: true},
         ["vwB0XUBZk2I","tMvGlwkoZbs","sC30ABctrwc","qTQPFQMjdpY","tYLQAghnQHU","fFyG7-oFnOM","lOrVHxgUnjE","iFciRv3Dp8Y",
         "0ejNLKnwTjs","pOhDGz6F4Lc","CQpC2jVXYsY","EM1xQ73AqkA","M2kKhtGdBco","k8bLJOqE8Nw","MCXkdMWrvGQ",
-        "Q_naBFpVcDg","G97O9j0B5hk","bidkK1c-kQ4","nrQ3pizX-00","q2RM-FlG7s8","Tstz0460lg4","vwmFaEf0wds","flERApRbYEg",
+        "G97O9j0B5hk","bidkK1c-kQ4","nrQ3pizX-00","q2RM-FlG7s8","Tstz0460lg4","vwmFaEf0wds","flERApRbYEg",
         "6ZA_qVvJjhk","M78G54LNoc8","gHLoCFGNjTY","Ri2AKqFpPCs","snPQjPz1ykY","mYMYjO-h3iA","-SivTCzI5RE",
         "Xmo09Q9P4ZE","O5JsnSxP88o","niJ5okAC_F4","KU3-LY6P74k","MBpqdwfUW7U","hq8ULI_dfNw","UW2Ky9ov7j4",
         "8aRxkuHaCIA","fp7M5kTt1LY","tvTOvg9fSGc","79OUjC0g8oc","QH_RQGjzFZ8","ksQqom3vrk0","ZLIw3-m5Hf0","aCDA6jp9ENo",
-        "BFOMS66b0VI","Wo85ofBC9EY","A-nefpQCEqY","qxMCVRY_-_M","Rv7Mse08fJI","RlzUNqxp-cQ","s2bZa13nvb4","xcH5iGEMG1Y",
+        "BFOMS66b0VI","Wo85ofBC9EY","A-nefpQCEqY","Rv7Mse08fJI","RlzUNqxp-cQ","s2bZa13nvb4","xcH5iGEMG1Y",
         "UdbtEkpOhG8","RJD02J8ykhg","u6pWoMQMt-w","-BKmGjL3Vlk","Bc5B3OiRWbM","na7OHndn2Ms","rvF-24XsmQo",
         "ilBbqgIXYC0","Dm3FVOmHlSM","n9Xc7kVkOyw","lXjRUaw62dY","MuvNUxA8fSo","Xi-RPvs0pSY"]
       ],
@@ -84,7 +84,7 @@ class Main extends React.Component {
         "bmedA220joE","BOMWX7HfuCk","JR6jmsvE7tI","k23XBL-wbIg","oFIcA72WvDo","57sE3cbN32A","T-ZX73ZUl-0",
         "Qr45vgMyxqs","Jr3wTfEuio4","P4WwaghKfVQ","2PFWc3NB_yU","saE3MF4r5WU","RVcKqGg-9Bo","GcQG5dRFweU","P8Ba2rn0ij4",
         "H0Ug-vgL3Zk","0AkbMFD3-us","YGO9ubx0o4c","pDNgH0G_Sxs","wIWae8LK4Ic","3is49vWMwFI",
-        "0KiJb63dTY4","sa1yDrGWjyw","j5xDP7H45Qk","0sYQBToCsgI","prM7LPN1OCw",
+        "0KiJb63dTY4","sa1yDrGWjyw","j5xDP7H45Qk","0sYQBToCsgI",
         "Vn9Lf_jfqUo","coqDIi4MTt0","Lk0-J04SjfU","U7rQ5F3mHvg","FSpnJJ2B5sc",
         "aYT0OuibWZQ","OGbCh8d2z6g","WSX9tmwRucY","814QZuYawSc","vFbCUk2fxEo","qgrw5kfmdYU",
         "aSARTT7QqeE","B3NxINU1aTA","GnjTWut3Wn8","hOMkrjU0bx0","YXXFyWCy2Bc","yOL-kSo74tM","ZLroR2V_B-k",
@@ -342,33 +342,36 @@ class Main extends React.Component {
             <input className="spaceInput"/>
 
             {/* youtube api with options */}
-            <YouTube
-              className="youtubePlayer"
-              videoId={this.state.playinChannelId}
-              opts={opts}
-              onReady={this.videoReady}
-              onEnd={this.videoEnd}
-              onStateChange={this.videoReady}
-            />
-            {/* tv images */}
+            <div className="youtubePlayerContainer">
+              <YouTube
+                className="youtubePlayer"
+                videoId={this.state.playinChannelId}
+                opts={opts}
+                onReady={this.videoReady}
+                onEnd={this.videoEnd}
+                onStateChange={this.videoReady}
+              />
+            </div>
+            {/* tv images and buttons */}
             <div className="tv__tvChannelBackground">
-              <h3 className="tv__tvChannelBackground__title">OPIS KANALA BRISI</h3>
+              <h3 className="tv__tvChannelBackground__title">OPIS KANALA</h3>
               <h3 className="tv__tvChannelBackground__subTitle">{this.state.videoTitle}</h3>
-              {/* ei nis logo */}
-              <img className="tv__eiNisLogo" onClick={this.eiNisLogo} src={eiNisLogo} alt="eiNisLogo" />
               {/* black background image for channel info */}
               <img className="tv__tvChannelBackground__image" src={tvChannelBackground} alt="tvChannelBackground" />
+              {/* ei nis logo */}
+              <img className="tv__eiNisLogo" onClick={this.eiNisLogo} src={eiNisLogo} alt="eiNisLogo" />
+              {/* youtube link button */}
+              <button className="tv__tvChannelBackground__youTubeLink" onClick={this.youTubeLink}>YouTube link</button>
+              {/* facebook link button */}
+              <button className="tv__tvChannelBackground__facebookLink">Facebook<br/><span style={{fontSize: "0.7em", color: "#a3a3a3"}}>(uskoro)</span></button>
+              {/* github project link */}
+              <a className="tv__tvChannelBackground__gitHubLink" href="https://github.com/Faneste/TV90tih" target="_blank" rel="noopener noreferrer">GitHub project</a>
             </div>
             {/* static sound effect */}
             <audio className="tv__staticSoundEffects">
               <source src={staticSound} type="audio/mpeg" />
             </audio>
-            {/* youtube link button */}
-            <button className="tv__tvChannelBackground__youTubeLink" onClick={this.youTubeLink}>YouTube link</button>
-            {/* facebook link button */}
-            <button className="tv__tvChannelBackground__facebookLink">Facebook<br/><span style={{fontSize: "0.7em", color: "#a3a3a3"}}>(uskoro)</span></button>
-            {/* github project link */}
-            <a className="tv__tvChannelBackground__gitHubLink" href="https://github.com/Faneste/TV90tih" target="_blank" rel="noopener noreferrer">GitHub project</a>
+
             {/* tv tutorial image */}
             <img className="tv__tutorialImage" src={tvTutorial} alt="tvTutorial" />
             {/* tv noise image */}
