@@ -352,7 +352,7 @@ class Main extends React.Component {
             />
             {/* tv images */}
             <div className="tv__tvChannelBackground">
-              <h3 className="tv__tvChannelBackground__title">OPIS KANALA</h3>
+              <h3 className="tv__tvChannelBackground__title">OPIS KANALA BRISI</h3>
               <h3 className="tv__tvChannelBackground__subTitle">{this.state.videoTitle}</h3>
               {/* ei nis logo */}
               <img className="tv__eiNisLogo" onClick={this.eiNisLogo} src={eiNisLogo} alt="eiNisLogo" />
