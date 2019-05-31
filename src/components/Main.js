@@ -133,7 +133,7 @@ class Main extends React.Component {
     this.youTubeLink = this.youTubeLink.bind(this);
     this.effectsToggle = this.effectsToggle.bind(this);
     // space function for changing channel
-    this.escFunction = this.escFunction.bind(this);
+    this.spaceKey = this.spaceKey.bind(this);
     // ei nis logo function
     this.eiNisLogo = this.eiNisLogo.bind(this);
     // background change function
@@ -141,11 +141,11 @@ class Main extends React.Component {
   }
 
   componentDidMount(){
-    document.addEventListener("keydown", this.escFunction, false);
+    document.addEventListener("keydown", this.spaceKey, false);
   }
 
   // change channel by pressing space
-  escFunction(event){
+  spaceKey(event){
     if(event.keyCode === 32) {
       console.log("esc");
       this.changeChannel();

@@ -1,4 +1,4 @@
-@media (min-width: 320px) and (max-width: 1200px) {
+@media (min-width: 300px) and (max-width: 1000px) {
 body {
   margin: 0;
   padding: 0;
@@ -6,28 +6,6 @@ body {
   font-family:'Days One', sans-serif;
   background: url("images/backgroundDefault.jpg");
   background-attachment: fixed;
-}
-
-/* pixel channel font */
-@font-face {
-  font-family: 'pixelFont';
-  src: url('./pixelFont.ttf'); /* IE9 Compat Modes */
-  src: local('Open Sans'), local('OpenSans'),
-       url('./pixelFont.ttf') format('embedded-opentype'), /* IE6-IE8 */
-       url('./pixelFont.ttf') format('woff2'), /* Super Modern Browsers */
-       url('./pixelFont.ttf') format('woff'), /* Modern Browsers */
-       url('./pixelFont.ttf') format('truetype'), /* Safari, Android, iOS */
-       url('./pixelFont.ttf') format('svg'); /* Legacy iOS */
-}
-
-/* disabling image dragging */
-img {
-  user-drag: none;
-  user-select: none;
-  -moz-user-select: none;
-  -webkit-user-drag: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
 }
 
  /* ///////////////////////// main container//////////////////// */
@@ -73,13 +51,11 @@ img {
 }
 
 .tv__tvChannelBackground {
-
-  /* display: none; */
-
   position: absolute;
   width: 95%;
   margin: 0px auto;
-  height: 140px;
+  height: auto;
+  padding-top: 20%;
   top: 0;
   left: 0;
   right: 0;
@@ -97,84 +73,22 @@ img {
 }
 
 .tv__tvChannelBackground__youTubeLink {
-  /* position: relative;
-    display: inline-block; */
-  /* bottom: 0;
-  right: 0; */
-  width: 90%;
-  height: 25px;
-  z-index: 10;
-  border: none;
-  background-color: #9e1e1d;
-  color: white;
-  font-family: Days One;
-  font-size: 0.7em;
-  /* padding-top: 2px;
-  padding-bottom: 2px; */
-
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border-radius: 3px;
-  margin-top: 0px;
-  /* margin-right: 48px;
-  margin-bottom: 130px; */
+  display: none;
 }
 
 .tv__tvChannelBackground__facebookLink {
-  /* position: relative;
-    display: inline-block; */
-  /* bottom: 0;
-  right: 0; */
-  display: inline;
-  width: 90%;
-  height: 25px;
-  z-index: 10;
-  border: none;
-  background-color: #185492;
-  color: white;
-  font-family: Days One;
-  font-size: 0.7em;
-  padding-right: 0px;
-  padding-left: 0px;
-  padding-top: 0px;
-  padding-bottom: 0px;
-  border-radius: 3px;
-  /* margin-right: 48px; */
-  /* margin-bottom: 95px; */
-  margin-top: 7px;
-}
-
-.tv__tvChannelBackground__youTubeLink:hover {
-  cursor: pointer;
-  background-color: #c81e1c;
-}
-
-.tv__tvChannelBackground__facebookLink:hover {
-  cursor: pointer;
-  background-color: #1d7cde;
+    display: none;
 }
 
 .tv__tvChannelBackground__gitHubLink {
-  /* display: none; */
   position: relative;
-  /* position: absolute;
-  bottom: -65px;
-  right: 0; */
   z-index: 10;
-  /* font-weight: 300; */
   color: #fff;
   font-family: Days One;
   font-size: 0.8em;
-  /* padding-right: 22px; */
-  /* padding-left: 22px; */
   border-radius: 7px;
-  /* padding-top: -20px; */
-  /* margin-right: 60px;
-  margin-bottom: 95px; */
-
   width: 90%;
   margin: 0px auto;
-  margin-top: 10px;
   text-decoration: none;
   border: 1px solid white;
 }
@@ -184,40 +98,19 @@ img {
 }
 
 .tv__tvChannelBackground__title {
-
-
-
-  /* display: none; */
-
-
-  /* position: relative; */
+  margin-top: -20%;
   font: Days One;
   color: #fff;
   font-size: 0.6em;
   font-weight: 400;
   z-index: 1;
-  /* margin-top: 3px; */
   margin-bottom: 0px;
-  /* width: 100%; */
-  /* margin-top: 7px;
-  margin-left: 12px; */
 
   -webkit-animation: none;
      -moz-animation: none;
       -ms-animation: none;
        -o-animation: none;
           animation: none;
-}
-
-@keyframes blink {
-  to {
-    text-shadow: 0px 0px 3px #ca1212;
-  }
-}
-@-webkit-keyframes blink {
-  to {
-    text-shadow: 0px 0px 3px #ca1212;
-  }
 }
 
 .tv__tvChannelBackground__subTitle {
@@ -229,41 +122,15 @@ img {
   color: #fff;
   font-size: 0.6em;
   font-weight: 400;
-  line-height: 1;
-  z-index: 5;
   width: 100%;
-  /* margin: 0px auto; */
   text-align: center;
   margin-top: 0px;
   margin-left: 0px;
   word-break: break-word;
-
-  -webkit-animation: none;
-     -moz-animation: none;
-      -ms-animation: none;
-       -o-animation: none;
-          animation: none;
-}
-
-@keyframes flicker {
-  to {
-    text-shadow: 0px 0px 3px #ca1212;
-  }
-}
-@-webkit-keyframes flicker {
-  to {
-    text-shadow: 2px 2px 5px #ca1212;
-  }
 }
 
 .tv__tvChannelBackground__image {
     display: none;
-
-    margin: 0px auto;
-    margin-top: 0px;
-    margin-left: -3px;
-    z-index: -1;
-    width: 100%;
 }
 
 /* ///////////////////////// youtube player //////////////////// */
@@ -291,27 +158,14 @@ img {
 /* ///////////////////////// remote container //////////////////// */
 .remote {
   grid-area: remote;
-
-
-  /* display: none; */
   position: absolute;
-  /* width: 50%; */
   margin: 0px auto;
-  height: 140px;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   margin: auto;
-  margin-top: 100%;
-
-
-  /* width: 195px;
-  margin-top: 27px; */
-
-  /* -webkit-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-     -moz-box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43);
-          box-shadow: 0px 0px 27px -6px rgba(0,0,0,0.43); */
+  margin-top: 90%;
 }
 /* images */
 .remote__image {
@@ -326,16 +180,6 @@ img {
 }
 
 .remote__changeChannelButtonImage__container__text {
-  position: absolute;
-  width: 80%;
-  z-index: 10;
-  color: white;
-  line-height: 1;
-  pointer-events:none;
-  margin-left: 13px;
-  padding-top: 35px;
-  font-size: 1em;
-  font-family: Days One!important;
 }
 
 .promeniKanalBr {
@@ -351,12 +195,7 @@ img {
 }
 
 .remote__changeChannelButtonImage__container__image:hover {
-  border-radius: 100px;
-  cursor: pointer;
 
-  -webkit-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
-     -moz-box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
-          box-shadow: 0px 0px 15px 0px rgba(0,0,0,0.45);
 }
 
 /* buttons */
@@ -394,14 +233,6 @@ img {
   margin-top: 5px;
 }
 
-.remote__buttonsContainer__button:hover {
-  cursor: pointer;
-
-  -webkit-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-     -moz-box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-          box-shadow: 0px 0px 7px 0px rgba(0,0,0,0.29);
-}
-
 .remote__buttonsContainer__volumeText {
   font-size: 0.9em;
   margin-top: 3px;
@@ -416,12 +247,6 @@ img {
 .buttonEffectContainerButton {
   font-size: 0.7em!important;
   margin-top: 0px;
-}
-
-.buttonEffectContainerButton__effectsToggle {
-  font-size: 0.7em!important;
-  /* margin-top: 15px; */
-  opacity: 0.5;
 }
 
 .buttonBackgroundContainerButton {
