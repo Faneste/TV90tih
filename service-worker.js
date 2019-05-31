@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/TV90tih/precache-manifest.981627633755152b8206711ec82f94e1.js"
+  "/TV90tih/precache-manifest.fafca50e144184859619f5f4fe7f2c42.js"
 );
 
 self.addEventListener('message', (event) => {
