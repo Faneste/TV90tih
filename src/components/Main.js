@@ -93,7 +93,7 @@ class Main extends React.Component {
         "Cnb08THJ520","IEk1xM1bmjY","12vEJlcYVgQ","FMiJm-fOa6Y","g5qtUZnF_l0","ubg2h_kBYSA","A1X6H-xEHbM","sGUN5R0GJLA",
         "zd5mInPZwik","M8uNvMLhXyU","bhHFN8I0BsU","a2FHHKz5Nh4","a2FHHKz5Nh4","WHr_iS6gojc","Eo3g80ILnl8","ANfy3RpISxk",
         "RP4dlGIo1Jg","Wqvw1CAqZss","W_6AvAISdPQ","2aUk4-5S1PM","dBMOxcs4e08","6WZsFFswrZs","6MACE3Ab1YU",
-        "qvbvV9srgbs","7P2A9q3W5Uw","YAvPC4_ElDQ","kWfLpAP7XoM","eO-IDYEVrDw",]
+        "7P2A9q3W5Uw","YAvPC4_ElDQ","kWfLpAP7XoM","eO-IDYEVrDw",]
       ],
       // emisije
       emisije: [

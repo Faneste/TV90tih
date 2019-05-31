@@ -234,19 +234,16 @@ body {
 }
 
 .remote__buttonsContainer__volumeText {
-  font-size: 0.9em;
-  margin-top: 3px;
-  margin-bottom: 0px;
-  font-family: Days One!important;
+  display: none;
 }
 
 .remote__buttonsContainer__volume {
-  margin-top: 7px;
+  display: none;
 }
 
 .buttonEffectContainerButton {
   font-size: 0.7em!important;
-  margin-top: 0px;
+  margin-top: 10px;
 }
 
 .buttonBackgroundContainerButton {
