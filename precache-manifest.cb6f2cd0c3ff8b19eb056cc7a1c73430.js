@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "817e008c690694c10488eac7adbc0892",
+    "revision": "efae63395b763151d3eb28e4610dce3e",
     "url": "/TV90tih/index.html"
   },
   {
-    "revision": "715be7deb506d3d9a806",
+    "revision": "b1533bc31c246a7eba70",
     "url": "/TV90tih/static/css/main.8524836d.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/TV90tih/static/js/2.151afd9b.chunk.js"
   },
   {
-    "revision": "715be7deb506d3d9a806",
-    "url": "/TV90tih/static/js/main.a7b0b23a.chunk.js"
+    "revision": "b1533bc31c246a7eba70",
+    "url": "/TV90tih/static/js/main.971b0d47.chunk.js"
   },
   {
     "revision": "b034c9f9d3d893b133d8",
