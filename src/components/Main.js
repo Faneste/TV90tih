@@ -144,6 +144,10 @@ class Main extends React.Component {
     document.addEventListener("keydown", this.spaceKey, false);
   }
 
+  componentWillUnmount = () => {
+	document.removeEventListener("keydown", this.spaceKey, false);
+  }
+  
   // change channel by pressing space
   spaceKey(event){
     if(event.keyCode === 32) {
