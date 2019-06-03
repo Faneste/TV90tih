@@ -126,18 +126,6 @@ class Main extends React.Component {
         "5FOAlPVZp1E","iUt-T1klyrs"]
       ]
     };
-    this.changeChannel = this.changeChannel.bind(this);
-    this.videoReady = this.videoReady.bind(this);
-    this.changeCategory = this.changeCategory.bind(this);
-    this.volumeChange = this.volumeChange.bind(this);
-    this.youTubeLink = this.youTubeLink.bind(this);
-    this.effectsToggle = this.effectsToggle.bind(this);
-    // space function for changing channel
-    this.spaceKey = this.spaceKey.bind(this);
-    // ei nis logo function
-    this.eiNisLogo = this.eiNisLogo.bind(this);
-    // background change function
-    this.backgroundChange = this.backgroundChange.bind(this);
   }
 
   componentDidMount(){
@@ -145,7 +133,7 @@ class Main extends React.Component {
   }
 
   // change channel by pressing space
-  spaceKey(event){
+  spaceKey = (event) => {
     if(event.keyCode === 32) {
       console.log("esc");
       this.changeChannel();
@@ -153,7 +141,7 @@ class Main extends React.Component {
   }
 
   // ei nis logo play
-  eiNisLogo() {
+  eiNisLogo = () => {
     console.log("ei nis");
     this.setState({
       playinChannelId: "MeG_3URH72o"
@@ -163,7 +151,7 @@ class Main extends React.Component {
 
   }
 
-  videoReady(event) {
+  videoReady = (event) => {
     // youtube title of the video
     let title = event.target.getVideoData().title;
     // setting title into state
@@ -173,13 +161,13 @@ class Main extends React.Component {
     event.target.setVolume(this.state.volume);
   }
 
-  videoEnd(event) {
+  videoEnd = (event) => {
     // loops the video when it ends
     event.target.playVideo();
   }
 
   // changing the volume
-  volumeChange(event) {
+  volumeChange = (event) => {
     this.setState({
       volume: event.target.value
     })
@@ -187,7 +175,7 @@ class Main extends React.Component {
   }
 
   // clicking the youtube button to go to youtube page
-  youTubeLink() {
+  youTubeLink = () => {
     window.open(
       'https://www.youtube.com/watch?v=' + this.state.playinChannelId,
       '_blank' // <- This is what makes it open in a new window.
@@ -195,7 +183,7 @@ class Main extends React.Component {
   }
 
   // toggle function for effects
-  effectsToggle(event) {
+  effectsToggle = (event) => {
     this.setState(prevState => ({
       effectsToggle: !prevState.effectsToggle
     }));
@@ -204,7 +192,7 @@ class Main extends React.Component {
   }
 
   // change background
-  backgroundChange() {
+  backgroundChange = () => {
     this.setState(prevState => ({ backgroundOrder: this.state.backgroundOrder + 1 }));
     document.body.style.backgroundImage = 'url(' + this.state.backgrounds[this.state.backgroundOrder] + ')';
     if( this.state.backgroundOrder === 2 ) {
@@ -213,8 +201,7 @@ class Main extends React.Component {
   }
 
   ////////////// changing/toggling the category
-  changeCategory(event) {
-
+  changeCategory = (event) => {
     // toggling category button styling
     event.target.classList.toggle('remote__buttonsContainer__button__colorToggle');
 
@@ -260,7 +247,7 @@ class Main extends React.Component {
   }
 
   ////////////// changing the channel
-  changeChannel() {
+  changeChannel = () => {
     // hide tutorial image
     document.getElementsByClassName('tv__tutorialImage')[0].style.display = "none";
 
