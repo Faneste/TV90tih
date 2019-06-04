@@ -306,7 +306,7 @@ img {
   text-align: center;
 }
 
-.remote__buttonsContainer__button {
+.remote__buttonsContainer > button {
   width: 80%;
   border: none;
   background-color: #423b33;
